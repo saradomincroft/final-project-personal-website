@@ -9,13 +9,13 @@
 <body>
     <header>
         <img src="img/sara-croft-font.png" alt="Sara Croft Text" id="sara-croft-text">
-        <nav class="navigation">
-            <a href="#">About</a>
-            <a href="#">Portfolio</a>
-            <a href="#">CV</a>
-            <a href="#">Skills</a>
-            <a href="#">Contact</a>
-        </nav>
+        <ul id="menu">
+            <li class="tablinks" onclick="openTab(event, 'about')">ABOUT</li>
+            <li class="tablinks" onclick="openTab(event, 'portfolio')">PORTFOLIO</li>
+            <li class="tablinks" onclick="openTab(event, 'resume')">RESUME</li>
+            <li class="tablinks" onclick="openTab(event, 'skills')">SKILLS</li>
+            <li class="tablinks" onclick="openTab(event, 'contact')">CONTACT</li>
+        </ul>
     </header>
     <div class="section" id="about">
         <img src="img/sara-croft.jpeg" class="rounded-circle" alt="Sara Croft Image" id="sara-croft-img">
@@ -30,14 +30,15 @@
 
     <div class="section" id="portfolio">
         <div class="row">
-            <div class="col-sm-3"><img src="img/stackpackers.jpg" class="rounded portfolio-icon" alt="Stackpackers"></div>
-            <div class="col-sm-3"><img src="img/nocturne.jpg" class="rounded portfolio-icon" alt="Nocturne Events"></div>
-            <div class="col-sm-3"><img src="img/ravecity.jpg" class="rounded portfolio-icon" alt="Rave City"></div>
-            <div class="col-sm-3"><img src="img/stackpackers.jpg" class="rounded portfolio-icon" alt="Stackpackers"></div>
+            <!-- Bootstrap col must always add up to 12 -->
+            <div class="col-md-3 col-sm-6 col-6"><img src="img/stackpackers.jpg" class="portfolio-icon" alt="Stackpackers"></div>
+            <div class="col-md-3 col-sm-6 col-6"><img src="img/nocturne.jpg" class="portfolio-icon" alt="Nocturne Events"></div>
+            <div class="col-md-3 col-sm-6 col-6"><img src="img/ravecity.jpg" class="portfolio-icon" alt="Rave City"></div>
+            <div class="col-md-3 col-sm-6 col-6"><img src="img/stackpackers.jpg" class="portfolio-icon" alt="Stackpackers"></div>
         </div>
     </div>
 
-    <div class="section" id="cv">
+    <div class="section" id="resume">
         
     </div>
 
@@ -49,5 +50,5 @@
         
     </div>
 
-
+    <script src="js/index.js"></script>
 </body>
