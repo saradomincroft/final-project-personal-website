@@ -51,6 +51,7 @@ p {
     transition: transform 0.2s ease-in-out;
 }
 
+/* For JavaScript */
 .active {
     background-image: linear-gradient( 135deg, #ededed 10%, rgb(120, 120, 120) 100%);
 	-webkit-background-clip: text; /* clipping mask styles */
@@ -84,7 +85,24 @@ p {
     opacity: 0.8;
     padding: 20px;
     border-radius: 30px;
+}
 
+/* To center align the social icons */
+.social-icons{
+    text-align: center;
+}
+
+.icons {
+    cursor: pointer;
+    margin: 10px;
+    display: inline-block;
+    width: 50px;
+}
+
+.icons:hover {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
 }
 
 .portfolio-icon:hover {
