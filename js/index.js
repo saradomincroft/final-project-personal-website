@@ -19,39 +19,66 @@ function openTab(event, tabName) {
     // Add active class to active tab
     event.currentTarget.classList.add('active');
 
-    // Store selected tab in local storage (for refreshing and staying on same tab)
-    // Setter and Getter (Setter)
+    // Store selected tab in local storage (for refreshing and staying on the same tab)
     localStorage.setItem('activeTab', tabName);
 }
 
-// Function to display the about section as default on page load but stay on selected page on refreshe
-window.onload = function() {
-    // Get active tab from local storage
-    // Setter and Getter (Getter)
-    var activeTab = localStorage.getItem('activeTab');
+function openSection(sectionName) {
+    // Map section names to their corresponding IDs
+    const sectionIds = {
+        about: 'about',
+        portfolio: 'portfolio',
+        resume: 'resume',
+        skills: 'skills',
+        contact: 'contact'
+    };
 
-    // On refresh (from stored) display active tab, otherwise default to about tab
-    if (activeTab) {
-        // Hide sections
-        var sectionsToHide = document.getElementsByClassName('section');
-        for (var i = 0; i < sectionsToHide.length; i++) {
-            sectionsToHide[i].style.display = 'none';
+    const sectionId = sectionIds[sectionName];
+    const section = document.getElementById(sectionId);
+    
+    if (section) {
+        // Hide all sections
+        var sections = document.getElementsByClassName('section');
+        for (var i = 0; i < sections.length; i++) {
+            sections[i].style.display = 'none';
         }
-        // Show stored active tab
-        var activeTabElement = document.getElementById(activeTab);
-        if (activeTabElement) {
-            activeTabElement.style.display = 'block';
 
-            // Find corresponding tab based on section ID and add active class styling
-            var currentTab = document.querySelector('.tablinks[onclick*="' + activeTab + '"]');
-            if (currentTab) {
-                currentTab.classList.add('active');
-            }
-        }   
+        // Display selected section
+        section.style.display = 'block';
         
+        // Remove active class from all tab links
+        var tabLinks = document.querySelectorAll('.tablinks');
+        tabLinks.forEach(function(tab) {
+            tab.classList.remove('active');
+        });
+
+        // Find corresponding tab based on section name and add active class styling
+        var currentTab = document.querySelector('.tablinks[onclick*="' + sectionName + '"]');
+        if (currentTab) {
+            currentTab.classList.add('active');
+        }
+
+        // Store selected tab in local storage (for refreshing and staying on the same tab)
+        localStorage.setItem('activeTab', sectionId);
+    }
+}
+
+// Side popout menu
+function openNav() {
+    document.getElementById("mySidebar").style.width = "100%";
+    document.getElementById("openbtn").style.marginRight = "100%";
+}
+
+function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("openbtn").style.marginRight = "0";
+}
+
+window.onload = function() {
+    var activeTab = localStorage.getItem('activeTab');
+    if (activeTab) {
+        openSection(activeTab);
     } else {
-        // Display the 'about' section by default
-        document.getElementById("about").style.display = 'block';
+        openSection('about'); // Default section to display
     }
 };
-

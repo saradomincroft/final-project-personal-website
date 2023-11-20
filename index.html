@@ -15,17 +15,35 @@
 	<title>Sara Croft</title>
 </head>
 <body>
+    <!-- HEADER - contains 'Sara Croft' lettering and navs -->
     <header>
         <img src="img/sara-croft-font.png" alt="Sara Croft Text" id="sara-croft-text">
-        <ul class="menu">
-            <li class="tablinks" onclick="openTab(event, 'about')">ABOUT</li>
-            <li class="tablinks" onclick="openTab(event, 'portfolio')">PORTFOLIO</li>
-            <li class="tablinks" onclick="openTab(event, 'resume')">RESUME</li>
-            <li class="tablinks" onclick="openTab(event, 'skills')">SKILLS</li>
-            <li class="tablinks" onclick="openTab(event, 'contact')">CONTACT</li>
-        </ul>
+        <!-- Main menu - wide screens -->
+        <nav id="menu" class="menu">
+            <ul class="menu main-menu">
+                <li class="tablinks toggle-links" onclick="openTab(event, 'about')">ABOUT</li>
+                <li class="tablinks toggle-links" onclick="openTab(event, 'portfolio')">PORTFOLIO</li>
+                <li class="tablinks toggle-links" onclick="openTab(event, 'resume')">RESUME</li>
+                <li class="tablinks toggle-links" onclick="openTab(event, 'skills')">SKILLS</li>
+                <li class="tablinks toggle-links" onclick="openTab(event, 'contact')">CONTACT</li>
+            </ul>
+        </nav>
+        <!-- Popout menu - narrow screens -->
+        <button id="openbtn" class="open-menu" onclick="openNav()">☰</button>  
+        <nav id="mySidebar" class="sidebar">
+            <button class="closebtn" onclick="closeNav()">☰</button>
+            <ul class="toggle-menu">
+                <li class="tablinks toggle-links" onclick="openSection('about'); closeNav()">ABOUT</li>
+                <li class="tablinks toggle-links" onclick="openSection('portfolio'); closeNav()">PORTFOLIO</li>
+                <li class="tablinks toggle-links" onclick="openSection('resume'); closeNav()">RESUME</li>
+                <li class="tablinks toggle-links" onclick="openSection('skills'); closeNav()">SKILLS</li>
+                <li class="tablinks toggle-links" onclick="openSection('contact'); closeNav()">CONTACT</li>
+            </ul>
+        </nav>
     </header>
-    <div class="section" id="about">
+
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
         <img src="img/sara-croft.jpeg" class="rounded-circle" alt="Sara Croft Image" id="sara-croft-img">
         <div class="social-icons">
         <a href="https://github.com/saradomincroft" target="_blank"><img src="img/github-icon.svg" class="icons" alt="Github Icon" id="github-icon"></a>
@@ -38,9 +56,10 @@
         <br>
         I am originally from the UK and currently based in Melbourne, Australia.
     </p>
-    </div>
+    </section>
 
-    <div class="section" id="portfolio">
+    <!-- PORTFOLIO SECTION -->
+    <section class="section" id="portfolio">
         <div class="row">
             <!-- Bootstrap col must always add up to 12 -->
             <a href="https://www.stackpackers.com" class="col-md-3 col-sm-6 col-6" target="_blank"><img src="img/stackpackers.jpg" class="portfolio-icon" alt="Stackpackers"></a>
@@ -55,21 +74,24 @@
             <a href="https://www.instagram.com/nocturneravers/" class="col-md-3 col-sm-6 col-6" target="_blank"><img src="img/ti.jpg" class="portfolio-icon" alt="T I Event"></a>
             <a href="https://www.instagram.com/nocturneravers/" class="col-md-3 col-sm-6 col-6" target="_blank"><img src="img/keeno.jpg" class="portfolio-icon" alt="Keeno Events"></a>
         </div>
-    </div>
+    </section>
 
-    <div class="section" id="resume">
+    <!-- RESUME SECTION -->
+    <section class="section" id="resume">
         
-    </div>
+    </section>
 
-    <div class="section" id="skills">
+    <!-- SKILLS SECTION -->
+    <section class="section" id="skills">
         <p>
             HTML - CSS - JAVASCRIPT - EVENT MANAGEMENT - DJ - MUSIC PRODUCTION - GRAPHIC DESIGN - MARKETING - SOCIAL MEDIA - ECOMMERCE - ADMINISTRATION - LEADING TEAMS - PROBLEM SOLVING - MICROSOFT OFFICE - ADOBE CREATIVE APPLICATIONS - ABLETON
         </p>
-    </div>
+    </section>
 
-    <div class="section" id="contact">
+    <!-- CONTACT SECTION -->
+    <section class="section" id="contact">
         
-    </div>
+    </section>
     <!-- js files just before closing body tag - faster loading? -->
     <script src="js/index.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
