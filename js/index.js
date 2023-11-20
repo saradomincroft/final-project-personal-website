@@ -79,6 +79,7 @@ window.onload = function() {
     if (activeTab) {
         openSection(activeTab);
     } else {
-        openSection('about'); // Default section to display
+        openSection('about'); // Default about
     }
 };
+
