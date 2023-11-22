@@ -19,8 +19,9 @@ function openTab(event, tabName) {
     // Add active class to active tab
     event.currentTarget.classList.add('active');
 
-    // Store selected tab in local storage (for refreshing and staying on the same tab)
-    localStorage.setItem('activeTab', tabName);
+    // Store selected tab in session storage (for refreshing and staying on the same tab)
+    // Use session storage instead of local storage to refresh settings when the page is opened again (not refreshed)
+    sessionStorage.setItem('activeTab', tabName);
 }
 
 function openSection(sectionName) {
@@ -59,7 +60,7 @@ function openSection(sectionName) {
         }
 
         // Store selected tab in local storage (for refreshing and staying on the same tab)
-        localStorage.setItem('activeTab', sectionId);
+        sessionStorage.setItem('activeTab', sectionId);
     }
 }
 
@@ -75,11 +76,11 @@ function closeNav() {
 }
 
 window.onload = function() {
-    var activeTab = localStorage.getItem('activeTab');
+    var activeTab = sessionStorage.getItem('activeTab');
     if (activeTab) {
         openSection(activeTab);
     } else {
-        openSection('about'); // Default about
-    }
+        openSection("about"); // Default about
+        
+    } 
 };
-
